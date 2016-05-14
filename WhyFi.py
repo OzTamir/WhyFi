@@ -13,7 +13,7 @@ class WhyFi(rumps.App):
     def __init__(self):
         super(WhyFi, self).__init__(
             name="WhyFi",
-            icon="icon.png"
+            icon="icons/icon.png"
             )
         self.ping_item = rumps.MenuItem("Ping: N/A")
         self.timer = ping_timer(self.ping_item)
@@ -22,7 +22,13 @@ class WhyFi(rumps.App):
         ping_checks = rumps.MenuItem("Ping Checks")
         ping_checks.state = True
 
-        self.menu = ["Wifi Power Cycle", "Reboot Router", self.ping_item, ping_checks]
+        router_reboot = rumps.MenuItem("Reboot Router",
+            icon="icons/router_reboot.png")
+
+        wifi_restart = rumps.MenuItem("Wifi Power Cycle",
+            icon="icons/wifi_restart.png")
+
+        self.menu = [wifi_restart, router_reboot, self.ping_item, ping_checks]
 
     @rumps.clicked("Wifi Power Cycle")
     def wifi(self, _):

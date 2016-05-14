@@ -4,11 +4,11 @@ APP = ['WhyFi.py']
 APP_NAME = 'WhyFi'
 DATA_FILES = [
 	'scripts',
-	'icon.png'
+	'icons'
 ]
 OPTIONS = {
     'argv_emulation': True,
-    'iconfile': 'app_icon.icns',
+    'iconfile': 'icons/app_icon.icns',
     'plist': {
         'LSUIElement': True,
         'CFBundleName': APP_NAME,
@@ -17,7 +17,7 @@ OPTIONS = {
         'CFBundleIdentifier': "com.oztamir.osx.whyfi",
         'CFBundleVersion': "0.1.0",
         'CFBundleShortVersionString': "0.1.0",
-        'NSHumanReadableCopyright': u"Copyright © 2016, Oz Tamir, All Rights Reserved"
+        'NSHumanReadableCopyright': "Copyright 2016, Oz Tamir, All Rights Reserved"
     },
     'packages': ['rumps'],
 }
