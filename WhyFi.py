@@ -1,8 +1,13 @@
+import webbrowser
 import rumps
 from script_util import *
 
-# Check ping every 15 seconds
-PING_INTERVAL=10
+
+# Check ping every PING_INTERVAL seconds
+PING_INTERVAL = 5
+
+# Speedtest site url
+SPEEDTEST_URL = 'http://www.speedtest.net/'
 
 def ping_timer(menu_item):
     def update_function(timer):
@@ -28,7 +33,14 @@ class WhyFi(rumps.App):
         wifi_restart = rumps.MenuItem("Wifi Power Cycle",
             icon="icons/wifi_restart.png")
 
-        self.menu = [wifi_restart, router_reboot, self.ping_item, ping_checks]
+        speedtest = rumps.MenuItem("Open Speedtest...",
+            icon="icons/speedtest.png")
+
+        self.menu = [wifi_restart, router_reboot, self.ping_item, ping_checks, speedtest]
+
+    @rumps.clicked("Open Speedtest...")
+    def open_speedtest(self, _):
+        webbrowser.open_new(SPEEDTEST_URL)
 
     @rumps.clicked("Wifi Power Cycle")
     def wifi(self, _):
